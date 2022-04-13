@@ -1,0 +1,14 @@
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\bin\Debug\DataFilter.exe.config
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\bin\Debug\DataFilter.exe
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\bin\Debug\DataFilter.pdb
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\obj\Debug\MainWindow.g.cs
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\obj\Debug\App.g.cs
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\obj\Debug\DataFilter_MarkupCompile.cache
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\obj\Debug\DataFilter_MarkupCompile.lref
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\obj\Debug\MainWindow.baml
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\obj\Debug\DataFilter.g.resources
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\obj\Debug\DataFilter.Properties.Resources.resources
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\obj\Debug\DataFilter.csproj.GenerateResource.cache
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\obj\Debug\DataFilter.exe
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\obj\Debug\DataFilter.pdb
+C:\Users\Farrokh A. Ghavanini\source\repos\DataFilter\DataFilter\obj\Debug\DataFilter.csprojAssemblyReference.cache

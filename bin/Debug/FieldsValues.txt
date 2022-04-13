@@ -1,0 +1,10 @@
+Data Period:			From 0 To 855 (Hour)
+Number of Data:			
+Start Point of Resampling:	
+Resample Interval:		
+Window Size (Odd Number):	
+Unchanged Data at First:	
+Unchanged Data at End:		
+Degree of Smoothing:		
+Cut-off Frequency:		
+Order of Filter:		

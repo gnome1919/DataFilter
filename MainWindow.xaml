@@ -1,0 +1,96 @@
+﻿<Window x:Class="DataFilter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DataFilter"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="820">
+    <Grid Background="#FFE5E5E5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="36.576"/>
+            <ColumnDefinition Width="103.424"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" TextAlignment="Left" Grid.Row="8" Grid.Column="0" Text="Type of Analysis:" FontWeight="Bold" FontSize="12" Margin="20,5,0,5" />
+        <RadioButton Name="MovAveRB" GroupName="AnalysisType" Content="Moving Average and Resample data with equal time step" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Row="10" VerticalAlignment="Center" IsChecked="{Binding Model.isMAChecked, UpdateSourceTrigger=PropertyChanged}"/>
+        <RadioButton Name="SavGolRB" GroupName="AnalysisType" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Row="13" VerticalAlignment="Center" IsChecked="{Binding Model.isSGChecked, UpdateSourceTrigger=PropertyChanged}">
+            <RadioButton.Content>
+                <TextBlock Text="Applying Savitzky-Golay low pass filter on a time series with equal time steps" TextWrapping="Wrap" TextAlignment="Justify" />
+            </RadioButton.Content>
+        </RadioButton>
+        <RadioButton Name="LowButRB" GroupName="AnalysisType" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Row="16" VerticalAlignment="Center" Grid.RowSpan="2" IsChecked="{Binding Model.isLBChecked, UpdateSourceTrigger=PropertyChanged}>
+            <RadioButton.Content>
+                <TextBlock Text="Applying Low pass Butterworth filter on a time series with equal time steps" TextWrapping="Wrap" TextAlignment="Justify"/>
+            </RadioButton.Content>
+        </RadioButton>
+
+        <TextBlock HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="138" TextAlignment="Left" Grid.Row="4" Grid.Column="0" Text="Import Input File:" FontWeight="Bold" FontSize="12" Margin="26,5,6,5"/>
+        <TextBox Name="InputFileTbx" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Height="20" Grid.Row="4" TextWrapping="NoWrap" VerticalAlignment="Center" Width="168" IsReadOnly="True" Margin="10,5,102,5" Text="{Binding Model.DataPeriod, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="..." Grid.Column="3" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="15" Height="20" Margin="6,5,82,5" Click="InpBtnClicked"/>
+
+        <TextBlock HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="138" TextAlignment="Left" Grid.Row="0" Grid.Column="0" Text="Input Format for Time:" FontWeight="Bold" FontSize="12" />
+        <RadioButton Name="SecondsRB" GroupName="TimeInputFormat" Content="Seconds" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" IsChecked="{Binding Model.isSecondsChecked, UpdateSourceTrigger=PropertyChanged}" Margin="20,5,0,0" />
+        <RadioButton Name="FullDateRB" GroupName="TimeInputFormat" Content="MM/DD/YYYY hh:mm" Grid.Column="0" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" IsChecked="True" Margin="20,5,0,0" />
+
+        <TextBlock HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="150" TextAlignment="Left" Grid.Row="4" Grid.Column="4" Text="Export Output File:" FontWeight="Bold" FontSize="12" />
+        <TextBox Name="OutputFileTbx" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="20" Grid.Row="4" TextWrapping="NoWrap" VerticalAlignment="Center" Width="168" IsReadOnly="True" Margin="133,5,41,5" Text="{Binding Model.DataPeriod, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="..." Grid.Column="5" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="15" Margin="126,5,21,5" />
+
+        <TextBlock HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="120" TextAlignment="Left" FontWeight="Bold" Grid.Row="5" Grid.Column="0" Text="Data Period" />
+        <TextBlock HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="120" TextAlignment="Left" FontWeight="Bold" Grid.Row="6" Grid.Column="0" Text="Number of Data" />
+
+        <TextBox Name="DataPeriodTbx" Grid.Column="1" HorizontalAlignment="Center" Height="20"  Grid.Row="5" TextWrapping="NoWrap" VerticalAlignment="Center" Width="188" Margin="10,2,82,2" Grid.ColumnSpan="3" IsReadOnly="True" />
+        <TextBox Name="DataNumberTbx" Grid.Column="1" HorizontalAlignment="Center" Height="20"  Grid.Row="6" TextWrapping="NoWrap" VerticalAlignment="Center" Width="120" Margin="10,2" IsReadOnly="True"/>
+
+        <TextBlock HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="150" TextAlignment="Left" FontWeight="Bold" Grid.Row="5" Grid.Column="4" Text="Start Point of Resampling:" />
+        <TextBlock HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="150" TextAlignment="Left" FontWeight="Bold" Grid.Row="6" Grid.Column="4" Text="Resample Interval:" />
+        <TextBox Name="ResampleStartTbx" Grid.Column="5" HorizontalAlignment="Center" Height="20" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="21,2"/>
+        <TextBox Name="ResampleIntervalTbx" Grid.Column="5" HorizontalAlignment="Center" Height="20"  Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="21,2"/>
+
+        <TextBlock HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="160" TextAlignment="Center" FontWeight="Bold" Grid.Row="10" Grid.Column="4" Text="Window Size (Odd Number)" Margin="15,7,5,3" />
+        <TextBox Name="WindowSizeTbx" Grid.Column="5" HorizontalAlignment="Center" Height="20" Grid.Row="10" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="21,2"/>
+
+        <TextBlock HorizontalAlignment="Center" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="150" TextAlignment="Left" FontWeight="Bold" Grid.Row="12" Grid.Column="4" Text="Unchanged Data at First" Margin="15,5" />
+        <TextBlock HorizontalAlignment="Center" Margin="15,5" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="150" TextAlignment="Left" FontWeight="Bold" Grid.Row="13" Grid.Column="4" Text="Unchanged Data at End" />
+        <TextBlock HorizontalAlignment="Center" Margin="15,3,15,7" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="150" TextAlignment="Left" FontWeight="Bold" Grid.Row="14" Grid.Column="4" Text="Degree of Smoothing" />
+        <TextBox Name="DataFirstTbx" Grid.Column="5" HorizontalAlignment="Center" Height="20" Grid.Row="12" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="21,2"/>
+        <TextBox Name="DataEndTbx" Grid.Column="5" HorizontalAlignment="Center" Height="20" Grid.Row="13" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="21,2" />
+        <TextBox Name="SmoothingTbx" Grid.Column="5" HorizontalAlignment="Center" Height="20" Grid.Row="14" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="21,2"/>
+
+        <TextBlock HorizontalAlignment="Center" Margin="15,5" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="150" TextAlignment="Left" FontWeight="Bold" Grid.Row="16" Grid.Column="4" Text="Cut-off Frequency" />
+        <TextBlock HorizontalAlignment="Center" Margin="15,5" TextWrapping="NoWrap" VerticalAlignment="Center" Height="20" Width="150" TextAlignment="Left" FontWeight="Bold" Grid.Row="17" Grid.Column="4" Text="Order of Filter"/>
+        <TextBox Name="CutOffFreqTbx" Grid.Column="5" HorizontalAlignment="Center" Height="20"  Grid.Row="16" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="21,2" Text="{Binding Model.CutOffFreq, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Name="FilterOrderTbx" Grid.Column="5" HorizontalAlignment="Center" Height="20"  Grid.Row="17" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" Margin="21,2" Text="{Binding Model.FilterOrder, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Button Content="Run" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="19" VerticalAlignment="Center" Width="76" Click="RunBtnClicked"/>
+
+
+    </Grid>
+</Window>
